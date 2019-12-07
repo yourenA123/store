@@ -28,4 +28,5 @@ public interface AuthService {
      * @return
      */
     List<User> getUserByUserName(Map<String, Object> param);
+
 }

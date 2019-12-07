@@ -1,6 +1,9 @@
 package com.helper.store.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -10,6 +13,9 @@ import java.io.Serializable;
  * @Description:
  */
 @Data
+@Getter
+@Setter
+@ToString
 public class Order implements Serializable {
     private Integer order_id;
     private Integer gsId;
@@ -19,6 +25,6 @@ public class Order implements Serializable {
     private Integer addressId;
     private Integer buyUserId;
     private Integer sellUserId;
-    private Double price;
+    private String price;
     private String trackingNumber;
 }

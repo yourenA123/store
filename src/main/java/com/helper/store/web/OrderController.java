@@ -7,10 +7,7 @@ import com.helper.store.util.Constants;
 import com.helper.store.util.ParamsUtils;
 //import com.helper.store.websocket.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.socket.WebSocketMessage;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +18,7 @@ import java.util.Map;
 /**
  * @author yanghao
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping("/order")
 public class OrderController {

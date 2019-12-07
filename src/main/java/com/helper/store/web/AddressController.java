@@ -15,6 +15,7 @@ import java.util.Map;
  * @create 2019-08-02 15:02
  * @Description:
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping("/address")
 public class AddressController {

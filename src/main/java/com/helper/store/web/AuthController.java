@@ -16,10 +16,7 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -29,6 +26,7 @@ import java.util.Map;
  * @author sheamus
  * @date 2019.7.3
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping(value="/auth")
 public class AuthController {
@@ -37,9 +35,9 @@ public class AuthController {
     @Autowired
     private AuthService authService;
     @Autowired
-    private RedisUtils redisUtils;
-    @Autowired
     private UserService userService;
+    @Autowired
+    private RedisUtils redisUtils;
     /**
      * 发送验证码
      * @param request
@@ -106,6 +104,9 @@ public class AuthController {
             }
             authService.saveUser(param);
             userService.addIntegral(param);
+            UsernamePasswordToken token = new UsernamePasswordToken(userCode, password);
+            token.setRememberMe(true);
+            subject.login(token);
             result.setResponseCode(Constants.RES_CODE_0);
             result.setErrorMessage(Constants.RES_MESSAGE_0);
         }catch (Exception e){
@@ -123,6 +124,7 @@ public class AuthController {
     @PostMapping(value = "/loginPS")
     public JsonMessage loginPS(HttpServletRequest request){
         JsonMessage result = new JsonMessage();
+        Map<String, Object> data = new HashMap<String, Object>(16);
         Map<String, Object> param = ParamsUtils.getParmas(request);
         String userCode = param.get("phone").toString();
         Subject subject = SecurityUtils.getSubject();
@@ -148,6 +150,7 @@ public class AuthController {
         }
         return result;
     }
+
 
     /**
      * 获取阿里验证码

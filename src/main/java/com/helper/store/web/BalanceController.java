@@ -7,6 +7,7 @@ import com.helper.store.service.BalanceService;
 import com.helper.store.util.Constants;
 import com.helper.store.util.ParamsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping("/withdrawalrecord")
 public class BalanceController {

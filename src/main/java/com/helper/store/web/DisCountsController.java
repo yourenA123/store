@@ -4,10 +4,7 @@ import com.helper.store.domain.JsonMessage;
 import com.helper.store.service.DisCountsService;
 import com.helper.store.util.ParamsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -17,6 +14,7 @@ import java.util.Map;
  * @create 2019-08-02 14:59
  * @Description:
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping("/discounts")
 public class DisCountsController {

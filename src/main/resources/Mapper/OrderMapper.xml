@@ -21,10 +21,8 @@
     <update id="restoreSell2" parameterType="map">
         update want_buy
          set is_sell=0
-         where want_id=(select want_buy.gs_id from want_buy where want_buy.want_id=#{wantId})
-
+         where want_id=(select `order`.want_id from `order` where `order`.order_id=#{orderId})
     </update>
-
 
     <update id="shoeSell" parameterType="map">
         update goods

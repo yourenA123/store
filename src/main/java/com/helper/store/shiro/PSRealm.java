@@ -45,5 +45,4 @@ public class PSRealm extends AuthorizingRealm {
             return new SimpleAuthenticationInfo(user, user.getPassword(), getName());
         }
     }
-
 }

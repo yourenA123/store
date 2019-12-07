@@ -6,10 +6,7 @@ import com.helper.store.service.GoodsService;
 import com.helper.store.util.Constants;
 import com.helper.store.util.ParamsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.socket.WebSocketSession;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +19,7 @@ import java.util.Map;
  * @create 2019-07-15 14:06
  * @Description:
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping("/goods")
 public class GoodsController {

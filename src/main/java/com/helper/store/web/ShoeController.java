@@ -6,10 +6,7 @@ import com.helper.store.service.ShoeService;
 import com.helper.store.util.Constants;
 import com.helper.store.util.ParamsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +21,7 @@ import java.util.Map;
  * @create 2019-07-02 15:51
  * @Description:
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping(value = "/shoe")
 public class ShoeController {

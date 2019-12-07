@@ -11,7 +11,7 @@ spring:
   application:
     name: SFC
   datasource:
-      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://121.196.205.160:3306/store?characterEncoding=UTF-8&useUnicode=true&serverTimezone=UTC&autoReconnect=true
       username: root
       password: 123456

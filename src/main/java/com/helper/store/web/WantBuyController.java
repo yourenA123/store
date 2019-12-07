@@ -17,6 +17,7 @@ import java.util.Timer;
 /**
  * @author yanghao
  */
+@CrossOrigin(allowCredentials="true",maxAge = 3600)
 @RestController
 @RequestMapping(value = "/wantBuy")
 public class WantBuyController {

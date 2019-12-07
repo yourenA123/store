@@ -47,6 +47,7 @@ public class ParamsUtils {
             User user = (User) subject.getPrincipal();
             param.put(str,user.getId());
             return param;
+
         }
 
 

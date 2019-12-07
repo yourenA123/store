@@ -16,19 +16,18 @@
         <result property="address_id" column="addressId" jdbcType="INTEGER"/>
         <result property="invitation_code" column="invitationCode" jdbcType="VARCHAR"/>
         <result property="is_invitation" column="isInvitation" jdbcType="INTEGER"/>
-
     </resultMap>
 
     <select id="countPhone" parameterType="String" resultType="int">
         SELECT COUNT(*)
         FROM `user`
-        WHERE phone = #{phone}
+        WHERE phone = #{phone};
     </select>
 
     <insert id="saveUser" parameterType="map">
-        INSERT INTO `user` ( phone, `password`, `name`, card_front, card_reverse,store_name, store_address, invitation_code, is_invitation, nickname, inviter_invitation_code)
+        INSERT INTO `user` ( phone, `password`, `name`, card_front, card_reverse,store_name, store_address,invitation_code, is_invitation,nicheng,inviter_invitation_code )
         VALUES
-            ( #{phone}, #{password}, #{name}, #{card_front}, #{card_reverse}, #{store_name}, #{store_address}, #{invitationCode}, 0 ,#{nickName}, #{inviterInvitationCode})
+            ( #{phone}, #{password}, #{name}, #{card_front}, #{card_reverse},#{store_name},#{store_address}, #{invitationCode}, 0 ,#{nickName},#{inviter_invitation_code})
     </insert>
 
     <select id="getUserByUserName" resultMap="User" parameterType="map">
